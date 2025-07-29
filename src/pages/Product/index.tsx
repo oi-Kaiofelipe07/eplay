@@ -1,12 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useParams } from 'react-router-dom'
 import Hero from '../../Components/Hero'
 import Section from '../../Components/Section'
 
+import cod from '../../assets/images/resident.png'
 import Gallery from '../../Components/Gallery'
 
 const Product = () => {
   const { id } = useParams()
-
   return (
     <>
       <Hero />
@@ -24,17 +25,12 @@ const Product = () => {
           Viva o Inesperado.
         </p>
       </Section>
-      <Section title="Mais Detalhes" background="gray">
+      <Section title="Mais detalhes" background="gray">
         <p>
-          Plataforma: PlayStation 5Desenvolvedor: Avalanche SoftwareEditora:
-          Portkey Games, subsidiária da Warner Bros. Interactive
-          EntertainmentIdiomas: O jogo oferece suporte a diversos idiomas,
-          incluindo inglês, espanhol, francês, alemão, italiano, português,
-          entre outros. As opções de áudio e legendas podem ser ajustadas nas
-          configurações do jogo.
+          <b>Plataforma:</b> PlayStation 5 <br />
         </p>
       </Section>
-      <Gallery />
+      <Gallery defaultCover={cod} name="teste" />
     </>
   )
 }
