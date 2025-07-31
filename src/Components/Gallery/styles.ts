@@ -68,6 +68,7 @@ export const ModalContent = styled.div`
   max-width: 960px;
   position: relative;
   z-index: 2;
+
   header {
     display: flex;
     justify-content: space-between;

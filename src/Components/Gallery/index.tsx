@@ -1,18 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react'
 import Section from '../Section'
+import { GalleryItem } from '../../pages/Home'
+
 import { Item, Items, Action, Modal, ModalContent } from './styles'
+
 import aranha from '../../assets/images/banner-homem-aranha.png'
 import hogwarts from '../../assets/images/hogwarts_modal.png'
 import play from '../../assets/images/botao-play 1.png'
 import fechar from '../../assets/images/fechar.png'
 import zoom from '../../assets/images/mais-zoom.png'
 import { url } from 'inspector'
-
-interface GalleryItem {
-  type: 'image' | 'video'
-  url: string
-}
 
 const mock: GalleryItem[] = [
   {
@@ -25,7 +23,7 @@ const mock: GalleryItem[] = [
   },
   {
     type: 'video',
-    url: 'https://www.youtube.com/embed/Jx12DLUSJvk?si=XEEptKxy5ZJ_GBaI'
+    url: 'https://www.youtube.com'
   }
 ]
 type Props = {
@@ -45,6 +43,7 @@ const Gallery = ({ defaultCover, name }: Props) => {
   })
   const [modalEstaAberta, setModalAberta] = useState(false)
   const [modalUrl, setModalUrl] = useState('')
+
   const getMediaCover = (item: GalleryItem) => {
     if (item.type === 'image') return item.url
     return defaultCover

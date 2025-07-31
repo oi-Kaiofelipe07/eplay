@@ -8,6 +8,10 @@ export const Card = styled.div`
   padding: 8px;
   position: relative;
 
+  img {
+    
+  }
+
   ${TagContainer} {
   margin-right: 8px;
   }
