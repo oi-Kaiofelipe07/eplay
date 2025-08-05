@@ -1,28 +1,23 @@
 import { Imagem, Precos, Titulo } from './styles'
-
-import bannerImg from '../../assets/images/banner-homem-aranha.png'
+import { Game } from '../../pages/Home/'
 import Tag from '../Tag'
 import Button from '../Button'
-import { useEffect, useState } from 'react'
-import { Game } from '../../pages/Home'
 
 import { formataPreco } from '../productsList'
 
+import { useGetGamesQuery } from '../../services/api'
+
 const Banner = () => {
-  const [game, setGame] = useState<Game>()
+  const { data: games } = useGetGamesQuery()
 
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/eplay/destaque')
-      .then((res) => res.json())
-      .then((res) => setGame(res))
-  }, [])
-
-  if (!game) {
+  if (!games || games.length === 0) {
     return <h3>Carregando...</h3>
   }
 
+  const game = games[0]
+
   return (
-    <Imagem style={{ backgroundImage: `url(${bannerImg})` }}>
+    <Imagem style={{ backgroundImage: `url(${game.media.cover})` }}>
       <div className="container">
         <Tag size="big">Destaque do dia</Tag>
         <div>
