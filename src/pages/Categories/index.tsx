@@ -28,15 +28,31 @@ const Categories = () => {
   }
   return (
     <>
-      <ProductsList games={rpgGames} title="RPG" background="gray" />
-      <ProductsList games={actionGames} title="Ação" background="black" />
+      <ProductsList games={rpgGames} title="RPG" background="gray" id="RPG" />
+      <ProductsList
+        games={actionGames}
+        title="Ação"
+        background="black"
+        id="Action"
+      />
       <ProductsList
         games={simulationGames}
         title="Aventura"
         background="gray"
+        id="Adventure"
       />
-      <ProductsList games={fightGames} title="FPS" background="black" />
-      <ProductsList games={sportsGames} title="Esportes" background="gray" />
+      <ProductsList
+        games={fightGames}
+        title="FPS"
+        background="black"
+        id="FPS"
+      />
+      <ProductsList
+        games={sportsGames}
+        title="Esportes"
+        background="gray"
+        id="Sports"
+      />
     </>
   )
 }
