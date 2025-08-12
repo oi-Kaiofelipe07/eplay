@@ -1,6 +1,5 @@
 import Banner from '../../Components/Banner'
 import ProductsList from '../../Components/productsList'
-import { useEffect, useState } from 'react'
 
 import { useGetOnSaleQuery, useGetSoonQuery } from '../../services/api'
 
@@ -10,6 +9,7 @@ export interface GalleryItem {
 }
 
 export type Game = {
+  length: number
   category: string
   id: number
   name: string

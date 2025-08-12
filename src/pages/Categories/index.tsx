@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'react'
 import ProductsList from '../../Components/productsList'
-import { Game } from '../Home'
 
 import {
   useGetActionGamesQuery,
-  useGetSportsGamesQuery,
+  useGetSportGamesQuery,
   useGetSimulationGamesQuery,
   useGetFightGamesQuery,
   useGetRpgGamesQuery
@@ -12,7 +10,7 @@ import {
 
 const Categories = () => {
   const { data: actionGames } = useGetActionGamesQuery()
-  const { data: sportsGames } = useGetSportsGamesQuery()
+  const { data: sportsGames } = useGetSportGamesQuery()
   const { data: simulationGames } = useGetSimulationGamesQuery()
   const { data: fightGames } = useGetFightGamesQuery()
   const { data: rpgGames } = useGetRpgGamesQuery()

@@ -1,5 +1,9 @@
-import React from 'react'
 import Button from '../Button'
+import Tag from '../Tag'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootReducer } from '../../store'
+import { close, remove } from '../../store/reducers/Cart'
+import { formataPreco } from '../productsList'
 import {
   Overlay,
   CartContainer,
@@ -8,11 +12,6 @@ import {
   Prices,
   Sidebar
 } from './styles'
-import Tag from '../Tag'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootReducer } from '../../store'
-import { close, remove } from '../../store/reducers/Cart'
-import { formataPreco } from '../productsList'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
@@ -25,7 +24,7 @@ const Cart = () => {
 
   const getTotalPrice = () => {
     return items.reduce((acumulador, valorAtual) => {
-      return (acumulador += valorAtual.prices.current!)
+      return (acumulador += valorAtual.prices.current ?? 0)
     }, 0)
   }
 
@@ -47,9 +46,13 @@ const Cart = () => {
                 <Tag>{item.details.system}</Tag>
                 <span>{formataPreco(item.prices.current)}</span>
               </div>
-              <button onClick={() => removeItem(item.id)} type="button">
+              <Button
+                onClick={() => removeItem(item.id)}
+                type="button"
+                title="Remover do carrinho"
+              >
                 Remover
-              </button>
+              </Button>
             </CartItem>
           ))}
         </ul>

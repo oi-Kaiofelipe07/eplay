@@ -24,6 +24,8 @@ export const Action = styled.div`
 export const Item = styled.li`
   position: relative;
   cursor: pointer;
+  cursor: zoom-in;
+
   > img {
     border: 2px solid ${cores.branca};
     border-radius: 8px;

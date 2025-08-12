@@ -1,20 +1,15 @@
-import { Imagem, Precos, Titulo } from './styles'
-import { Game } from '../../pages/Home/'
 import Tag from '../Tag'
 import Button from '../Button'
-
 import { formataPreco } from '../productsList'
-
-import { useGetGamesQuery } from '../../services/api'
+import { useGetFeaturedGameQuery } from '../../services/api'
+import { Imagem, Precos, Titulo } from './styles'
 
 const Banner = () => {
-  const { data: games } = useGetGamesQuery()
+  const { data: game } = useGetFeaturedGameQuery()
 
-  if (!games || games.length === 0) {
+  if (!game) {
     return <h3>Carregando...</h3>
   }
-
-  const game = games[0]
 
   return (
     <Imagem style={{ backgroundImage: `url(${game.media.cover})` }}>
