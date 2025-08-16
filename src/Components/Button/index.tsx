@@ -6,7 +6,8 @@ export type Props = {
   to?: string
   onClick?: () => void
   children: string
-  variant?: 'primary' | 'seconadry'
+  variant?: 'primary' | 'secondary'
+  disabled?: boolean
 }
 
 const Button = ({

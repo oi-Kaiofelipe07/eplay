@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react'
-import { GalleryItem } from '../../pages/Home'
 import * as S from './styles'
 import Section from '../Section'
 import play from '../../assets/images/botao-play 1.png'

@@ -45,6 +45,13 @@ export const Sidebar = styled.aside`
     color: ${colors.white};
     text-align: center;
   }
+
+  .empty-text {
+    font-size: 14px;
+    line-height: 22px;
+    color: ${colors.white};
+    text-align: center;
+  }
 `
 export const Prices = styled.p`
   font-weight: bold;

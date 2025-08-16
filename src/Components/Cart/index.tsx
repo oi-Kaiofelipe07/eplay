@@ -30,34 +30,44 @@ const Cart = () => {
     <S.CartContainer className={isOpen ? 'is-open' : ''}>
       <S.Overlay onClick={closeCart} />
       <S.Sidebar>
-        <ul>
-          {items.map((item) => (
-            <S.CartItem key={item.id}>
-              <img src={item.media.thumbnail} alt={item.name} />
-              <div>
-                <h3>{item.name}</h3>
-                <Tag>{item.details.category}</Tag>
-                <Tag>{item.details.system}</Tag>
-                <span>{parseToBrl(item.prices.current)}</span>
-              </div>
-              <Button
-                onClick={() => removeItem(item.id)}
-                type="button"
-                title="Remover do carrinho"
-              >
-                Remover
-              </Button>
-            </S.CartItem>
-          ))}
-        </ul>
-        <S.Quantity>{items.length} jogo(s) no carrinho</S.Quantity>
-        <S.Prices>
-          Total de {parseToBrl(getTotalPrice(items))}{' '}
-          <span>Em até 6x sem juros</span>
-        </S.Prices>
-        <Button onClick={goToCheckout} title="Finalizar Compra" type="button">
-          Continuar com a compra
-        </Button>
+        {items.length > 0 ? (
+          <>
+            <ul>
+              {items.map((item) => (
+                <S.CartItem key={item.id}>
+                  <img src={item.media.thumbnail} alt={item.name} />
+                  <div>
+                    <h3>{item.name}</h3>
+                    <Tag>{item.details.category}</Tag>
+                    <Tag>{item.details.system}</Tag>
+                    <span>{parseToBrl(item.prices.current)}</span>
+                  </div>
+                  <Button
+                    onClick={() => removeItem(item.id)}
+                    type="button"
+                    title="Remover do carrinho"
+                  >
+                    Remover
+                  </Button>
+                </S.CartItem>
+              ))}
+            </ul>
+            <S.Quantity>{items.length} jogo(s) no carrinho</S.Quantity>
+            <S.Prices>
+              Total de {parseToBrl(getTotalPrice(items))}{' '}
+              <span>Em até 6x sem juros</span>
+            </S.Prices>
+            <Button
+              onClick={goToCheckout}
+              title="Finalizar Compra"
+              type="button"
+            >
+              Continuar com a compra
+            </Button>
+          </>
+        ) : (
+          <p className="empty-text">Seu carrinho está vazio</p>
+        )}
       </S.Sidebar>
     </S.CartContainer>
   )
